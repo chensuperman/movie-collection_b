@@ -20,15 +20,22 @@ public class userServicelmpl implements userService{
         userMapper.deleteById(id);
     }
 
+    //查询所有用户信息
+    @Override
+    public List<user> getAllUserList() {
+        return userMapper.AllUserList();
+    }
+
     //用户登录
     @Override
     public user login(user user) {
         return userMapper.gitByUsernameAndPassword(user);
     }
 
-    //查询所有用户信息
     @Override
-    public List<user> getAllUserList() {
-        return userMapper.AllUserList();
+    public void register(user user) {
+        userMapper.register(user);
     }
+
+
 }

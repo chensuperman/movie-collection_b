@@ -15,11 +15,19 @@ public class loginController {
     private userService userService;
 
     @PostMapping("/login")
-    public Result login(@RequestBody user user){
+    public Result login(@RequestBody user user) {
 
-        log.info("登录用户:{}",user);
+        log.info("登录用户:{}", user);
         //调用service登录用户
+
         user e = userService.login(user);
-        return e!=null? Result.success(e):Result.error("用户名或密码有误！");
+        if(e==null){
+            return Result.error("用户名或密码有误！");
+        }else if(e.getUserPrivilege() == 3){
+            return Result.error("该用户已注销！");
+        }else {
+            return Result.success(e);
+        }
+
     }
 }
