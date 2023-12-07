@@ -1,9 +1,6 @@
 package com.example.mapper;
 
 import com.example.pojo.movie;
-
-
-
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

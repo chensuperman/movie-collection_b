@@ -9,7 +9,7 @@ import com.example.mapper.userMapper;
 import java.util.List;
 
 @Service
-public class userServicelmpl implements userService{
+public class userServiceImpl implements userService{
 
     @Autowired
     private userMapper userMapper;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.service.movieService;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Slf4j
 @RestController
@@ -38,7 +38,6 @@ public class movieController {
         movieService.deleteMovie(movieIds);
         return Result.success();
     }
-
 
     //添加电影
     @PostMapping("/addMovie")
