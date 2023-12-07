@@ -17,6 +17,7 @@ public class userController {
     private userService userService;
 
     // 批量删除用户
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/deleteUser/{ids}")
     public Result deleteUser(@PathVariable List <Integer> ids){
         log.info("根据id删除用户:{}" ,ids);
@@ -26,6 +27,7 @@ public class userController {
     }
 
     //获取所有用户的个人信息列表（除了管理员）
+    @CrossOrigin(origins = "*")
     @GetMapping("/getAllUser")
     public Result getAllUser(){
         log.info("获取所有用户的个人信息列表");
@@ -34,6 +36,7 @@ public class userController {
     }
 
     //修改密码
+    @CrossOrigin(origins = "*")
     @PostMapping("/updatePassword")
     public Result updatePassword(@RequestBody user user){
         log.info("修改密码：{}",user);
@@ -42,14 +45,13 @@ public class userController {
     }
 
     //修改头像
+    @CrossOrigin(origins = "*")
     @PostMapping("/updateAvatar")
     public Result updateAvatar(@RequestBody user user){
         log.info("修改头像：{}",user);
         userService.updateAvatar(user);
         return Result.success();
     }
-
-
 
 
 

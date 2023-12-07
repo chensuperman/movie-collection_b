@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @Service
-public class movieServicelmpl implements movieService {
+public class movieServiceImpl implements movieService {
     @Autowired
     private movieMapper movieMapper;
 

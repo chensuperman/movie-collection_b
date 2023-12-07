@@ -4,6 +4,7 @@ import com.example.pojo.Result;
 import com.example.pojo.user;
 import com.example.service.userService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ public class loginController {
     @Autowired
     private userService userService;
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/login")
     public Result login(@RequestBody user user) {
 

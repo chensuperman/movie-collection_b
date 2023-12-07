@@ -16,7 +16,7 @@ public interface userMapper {
     List<user> AllUserList();
 
     //根据用户的用户名或邮箱和密码查询信息
-    @Select("select * from user_information where (username = #{username} and password = #{password}) or (user_email = #{userEmail} and username = #{username})")
+    @Select("select * from user_information where (username = #{username} and password = #{password}) or (user_email = #{userEmail} and password = #{password})")
     user gitByUsernameAndPassword(user user);
 
     //创建账号

@@ -3,13 +3,13 @@ package com.example.controller;
 import com.example.pojo.Result;
 import com.example.pojo.movie;
 import com.example.pojo.movieSimple;
+import com.example.service.movieService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.example.service.movieService;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Slf4j
 @RestController
@@ -20,6 +20,7 @@ public class movieController {
 
 
     //获取电影的数据
+    @CrossOrigin(origins = "*")
     @GetMapping("/getMovieList/{num}")
     public Result AllMovieList(@PathVariable Integer num){
         log.info("查询电影数据:{}",num);
@@ -30,6 +31,7 @@ public class movieController {
     }
 
     //删除电影
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/deleteMovie/{movieIds}")
     public Result deleteMovie(@PathVariable List<Integer> movieIds){
         log.info("删除电影数据:{}",movieIds);
@@ -39,8 +41,8 @@ public class movieController {
         return Result.success();
     }
 
-
     //添加电影
+    @CrossOrigin(origins = "*")
     @PostMapping("/addMovie")
     public Result addMovie(@RequestBody movie movie){
 
@@ -51,6 +53,7 @@ public class movieController {
     }
 
     //获取搜索的电影by名字
+    @CrossOrigin(origins = "*")
     @GetMapping("/showMovieByTitle/{title}")
     public Result showMovieMovieByTitle(@PathVariable String title){
         log.info("显示电影数据:{}",title);
@@ -66,6 +69,7 @@ public class movieController {
     }
 
    //获取搜索的电影by电影ID
+   @CrossOrigin(origins = "*")
     @GetMapping("/showMovieById/{movieId}")
     public Result showMovieMovieByMovieId(@PathVariable Integer movieId){
        movie movie= movieService.showMovieById(movieId);
