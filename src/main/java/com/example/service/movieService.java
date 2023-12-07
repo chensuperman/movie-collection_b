@@ -9,5 +9,14 @@ public interface movieService {
     List<movie> getMovieList(Integer num);
 
 
+    //批量删除电影
+    void deleteMovie(List<Integer> movieIds);
 
+    //添加电影
+    void addMovie(movie movie);
+
+    //获取搜索的电影by名字
+    List <movie> showMovieMovieByTitle(String title);
+
+    movie showMovieById(Integer movieId);
 }

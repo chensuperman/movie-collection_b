@@ -14,10 +14,10 @@ public class userServicelmpl implements userService{
     @Autowired
     private userMapper userMapper;
 
-    //删除用户
+    //批量删除用户
     @Override
-    public void deleteUser(Integer id) {
-        userMapper.deleteById(id);
+    public void deleteUser(List<Integer> ids) {
+        userMapper.deleteById(ids);
     }
 
     //查询所有用户信息
@@ -32,9 +32,22 @@ public class userServicelmpl implements userService{
         return userMapper.gitByUsernameAndPassword(user);
     }
 
+    //用户注册
     @Override
     public void register(user user) {
         userMapper.register(user);
+    }
+
+    //修改密码
+    @Override
+    public void updatePassword(user user) {
+      userMapper.updatePassword(user);
+    }
+
+    //修改头像
+    @Override
+    public void updateAvatar(user user) {
+        userMapper.updateAvatar(user);
     }
 
 

@@ -4,10 +4,7 @@ import com.example.pojo.Result;
 import com.example.pojo.user;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.service.userService;
 
 import java.util.List;
@@ -19,12 +16,12 @@ public class userController {
     @Autowired
     private userService userService;
 
-    // 删除用户
-    @DeleteMapping("/deleteUser/{id}")
-    public Result deleteUser(@PathVariable Integer id){
-        log.info("根据id删除用户:{}" ,id);
+    // 批量删除用户
+    @DeleteMapping("/deleteUser/{ids}")
+    public Result deleteUser(@PathVariable List <Integer> ids){
+        log.info("根据id删除用户:{}" ,ids);
         //调用service删除用户
-        userService.deleteUser(id);
+        userService.deleteUser(ids);
         return Result.success();
     }
 
@@ -35,4 +32,25 @@ public class userController {
         List<user> AllUserList = userService.getAllUserList();
         return Result.success(AllUserList);
     }
+
+    //修改密码
+    @PostMapping("/updatePassword")
+    public Result updatePassword(@RequestBody user user){
+        log.info("修改密码：{}",user);
+        userService.updatePassword(user);
+        return Result.success();
+    }
+
+    //修改头像
+    @PostMapping("/updateAvatar")
+    public Result updateAvatar(@RequestBody user user){
+        log.info("修改头像：{}",user);
+        userService.updateAvatar(user);
+        return Result.success();
+    }
+
+
+
+
+
 }
