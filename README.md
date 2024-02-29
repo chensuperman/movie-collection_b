@@ -1,2 +1,2 @@
 # movie-collection_b
-实训作业
+电影收藏系统
